@@ -5,12 +5,12 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import Home from '../pages/Home';
-import Catalog from '../pages/Catalog';
-import Detail from '../pages/detail/Detail';
-import Login from '../components/auth/Login';
-import Signup from '../components/auth/Signup';
-import FavoriteView from '../components/favorite/FavoriteView';
+import Home from './pages/Home';
+import Catalog from './pages/Catalog';
+import Detail from './pages/detail/Detail';
+import Login from './components/auth/Login';
+import Signup from './components/auth/Signup';
+import FavoriteView from './components/favorite/FavoriteView';
 
 function App() {
   return (
