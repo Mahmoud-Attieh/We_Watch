@@ -73,7 +73,7 @@ const Login = () => {
                             }
                         }} placeholder="Enter your password"></input>
                         <p style={{ color: "red", fontSize: "14px" }}>{passwordError}</p>
-                        <p>Not a user? No problem you can <a className='rg-here' href='/register'>register here</a>.</p>
+                        <p>Not a user? No problem you can <Link className='rg-here' to='/register'>register here</Link>.</p>
                         {email?.length < 6 || password?.length < 8 ? null : <button onClick={LoginHandle} class="login-btn">
                             <i class="bi bi-box-arrow-in-left"></i>
                             Login</button>}
