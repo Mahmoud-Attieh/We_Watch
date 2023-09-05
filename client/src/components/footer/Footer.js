@@ -26,9 +26,9 @@ const Footer = () => {
                 <Link to='/'>Privacy policy</Link>
             </div>
             <div className='footer__content__menu'>
-                <Link to='/'>Oday Iseed</Link>
-                <Link to='/'>Kareem Taha</Link>
-                <Link to='/'>Mahmoud Attieh</Link>
+                <a href="https://www.linkedin.com/in/p1gt//" target="_blank">Oday Iseed</a>
+                <a href="https://www.linkedin.com/in/kareem-taha-892b26273//" target="_blank">Kareem Taha</a>
+                <a href="https://www.linkedin.com/in/mahmoud-attieh-035aa6192/" target="_blank">Mahmoud Attieh</a>
             </div>
         </div>
         </div>
