@@ -94,3 +94,16 @@ module.exports.getUser = (request, response) => {
         .catch(err => response.json(err))
 }
 
+module.exports.deleteUser = (request, response) => {
+    User.deleteOne({ _id: request.params.id })
+        .then(deleteConfirmation => response.json(deleteConfirmation))
+        .catch(err => response.json(err))
+}
+
+
+module.exports.updateUser = (request, response) => {
+    User.findOneAndUpdate({_id: request.params.id}, request.body, {new:true})
+        .then(updatedUser => response.json(updatedUser))
+        .catch(err => response.json(err))
+}
+
