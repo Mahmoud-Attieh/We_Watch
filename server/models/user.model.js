@@ -45,7 +45,7 @@ UserSchema.pre("save", function(next)
         next();
     })
     .catch((err) => {
-        console.log("error while hashing the password");
+        console.log("Error while hashing the password");
     })
 })
 

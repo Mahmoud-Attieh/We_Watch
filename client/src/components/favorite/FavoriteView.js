@@ -1,6 +1,3 @@
-// todo
-// create a vew to view all the favorite items in a table
-
 import React, { useState, useEffect } from "react";
 import tmdbApi from '../../api/tmdbApi';
 import apiFavorites from '../../api/apiFavorites';
@@ -9,7 +6,6 @@ import "./favorite-view.scss";
 import PageHeader from '../page-header/PageHeader';
 
 
-// make a function to get all the favorite moviesId of the specific userId from the server and store it in a state
 
 function FavoriteView() {
   const [favoriteMovies, setFavoriteMovies] = useState([]);
@@ -29,7 +25,6 @@ function FavoriteView() {
     fetchData();
   }, []);
 
-//get the movieId from the favoriteMovies state and makes calls to tmdb api to get the movie details and store it in a state
 
   const [movieDetails, setMovieDetails] = useState([]);
 
@@ -41,7 +36,6 @@ function FavoriteView() {
     });
   }, [favoriteMovies]);
 
-  //removes the movie from the favorite list
 
   const removeFavorite = (movieId) => {
     const userId = localStorage.getItem("userid");
@@ -51,7 +45,7 @@ function FavoriteView() {
           `/api/favorites/${userId}/${movieId}`
         );
         console.log(response.data);
-        // filter out the deleted movie from the movieDetails state
+
         setMovieDetails(movieDetails.filter((movie) => movie.id !== movieId));
       } catch (error) {
         console.error(error);
@@ -60,9 +54,6 @@ function FavoriteView() {
     fetchData();
   };
 
-  
-
-  // return the movie details in a table and add a button to remove the movie from the favorite list
   return (
     <div className="container">
       <PageHeader>
