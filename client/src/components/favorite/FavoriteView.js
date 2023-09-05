@@ -55,10 +55,11 @@ function FavoriteView() {
   };
 
   return (
-    <div className="container">
-      <PageHeader>
+    <>
+          <PageHeader>
         My Favorites
       </PageHeader>
+    <div className="container">
       <div className="favorite-view">
         <table className="favorite-table">
           <thead>
@@ -101,6 +102,7 @@ function FavoriteView() {
         </table>
       </div>
     </div>
+    </>
   );
 }
 

@@ -23,7 +23,7 @@ exports.create = async (req, res) => {
 
 exports.findAllByUserId = async (req, res) => {
   try {
-    const favorites = await Favorite.find({ userId: req.params.userId });
+    const favorites = await Favorite.find({ userId: req.params.userId }).sort({number:1});
     res.status(200).json(favorites);
   } catch (error) {
     console.error(error);

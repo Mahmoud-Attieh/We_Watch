@@ -16,6 +16,14 @@ if (localStorage.getItem("loggeduser") !== null)
         });
 }
 
+if (localStorage.getItem("loggeduser") !== null) 
+{
+    headerNav.splice(4, 0, 
+        {
+            display: 'Chat',
+            path: '/chat',
+        });
+}
 const Header = () => 
 {
     const navigate = useNavigate()
@@ -31,6 +39,7 @@ const Header = () =>
         localStorage.removeItem("jwt");
         localStorage.removeItem("loggeduser")
         localStorage.removeItem("userid")
+        navigate('/')
         window.location.reload()
         setIsOpen(false);
     }
@@ -82,26 +91,28 @@ const Header = () =>
             {headerNav.map((e, i) => (
             <li key={i} className={`${i === active ? 'active' : ''}`}>
                 <Link to={e.path}>{e.display}</Link>
+
             </li>
             ))}
+            
         </ul>
         <div className='header__nav'>
             {token == null ? (
             <li className='login' onClick={loginHandler}>
-                <i class="bi bi-box-arrow-in-left"></i> Login 
+                <i className="bi bi-box-arrow-in-left"></i> Login 
             </li>
             ) : (
-            <div class="dropdown">
-                <div class="dropdown__toggle" onClick={handleToggle}>
-                    <i class="bi bi-person-circle"></i><l1>Hi, {loggeduser?.name}</l1>
+            <div className="dropdown">
+                <div className="dropdown__toggle" onClick={handleToggle}>
+                    <i  className="bi bi-person-circle"></i><p style={{color:"#fc3e1d"}}>Hi, {loggeduser?.name}</p>
                 </div>
                 {isOpen && (
-                <div class="dropdown__menu">
+                <div className="dropdown__menu">
                     <li className="signout" onClick={profileHandler}>
                     Profile
                     </li>
                     <li className="signout" onClick={logoutHandler}>
-                    Logout <i class="bi bi-box-arrow-right"></i>
+                    Logout <i className="bi bi-box-arrow-right"></i>
                     </li>
                 </div>
                 )}

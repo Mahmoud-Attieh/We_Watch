@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 import './style.css'
 import "./favorite-view.scss";
-import { useNavigate , Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import PageHeader from '../page-header/PageHeader';
 
 
@@ -42,10 +42,11 @@ const UserDetail = (props) => {
 
     return (
         <div>
+            <PageHeader>
+                My Profile
+            </PageHeader>
             <div className="container">
-                <PageHeader>
-                    My Profile
-                </PageHeader>
+
                 <div className="card">
                     <div className="infos">
                         <div className="name">
@@ -62,7 +63,7 @@ const UserDetail = (props) => {
                             </li>
                         </ul>
                         <div className="links">
-                            
+
                             <Link to={"/user/" + user._id + "/edit"}> <button className="follow">Edit</button> </Link>
                             <button onClick={deleteUser} className="view">Delete</button>
                         </div>
