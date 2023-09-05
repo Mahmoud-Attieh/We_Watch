@@ -18,7 +18,7 @@ module.exports = {
             })
         })
         .catch((err) => {
-            console.log("register not successful");
+            console.log("Register not successful");
             res.status(400).json(err)
         })
     },
@@ -32,7 +32,7 @@ module.exports = {
                     bcrypt.compare(req.body.password, userRecord.password)
                         .then((isPasswordValid) => {
                             if(isPasswordValid) {
-                                console.log('password is valid');
+                                console.log('Password is valid');
                                 console.log(userRecord);
                                 console.log(process.env.JWT_SECRET);
                                 res.cookie("usertoken", 
@@ -47,7 +47,7 @@ module.exports = {
                                     }
                                     
                                 ).json({
-                                    message:"succesfly logged in",
+                                    message:"Succesfly logged in",
                                     userLoggedIn: userRecord.name                              })
 
                             }else{

@@ -45,10 +45,10 @@ const Login = () => {
                 <div className='left'>
                     <div className='logo'>
                         <img src={logo} alt='MyMovies' />
-                        <Link to='/'>We Watch</Link>
+                        <Link to='/'>WeWatch</Link>
                     </div><br></br>
                     <h3>The best Movie Database App for your</h3>
-                    <p>Please login to continue using our service.</p>
+                    <p>Please login to continue using our service</p>
                 </div>
                 <div className='form-container' >
                     <div className='form'>
@@ -57,7 +57,7 @@ const Login = () => {
                         <input className='inputforms' type='email' onChange={(e) => {
                             setEmail(e?.target?.value);
                             if (e?.target?.value?.length < 6) {
-                                setEmailError("*Email must be at least 6 characters long")
+                                setEmailError("Email must be at least 6 characters long")
                             } else {
                                 setEmailError()
                             }
@@ -67,13 +67,13 @@ const Login = () => {
                         <input className='inputforms' type='password' onChange={(e) => {
                             setPassword(e?.target?.value);
                             if (e?.target?.value?.length < 8) {
-                                setPasswordError("*Password must be at least 8 characters long")
+                                setPasswordError("Password must be at least 8 characters long")
                             } else {
                                 setPasswordError()
                             }
                         }} placeholder="Enter your password"></input>
                         <p style={{ color: "red", fontSize: "14px" }}>{passwordError}</p>
-                        <p>Not a user? No problem you can <Link className='rg-here' to='/register'>register here</Link>.</p>
+                        <p>Don't have account? <Link className='rg-here' to='/register'>Register Here</Link>.</p>
                         {email?.length < 6 || password?.length < 8 ? null : <button onClick={LoginHandle} class="login-btn">
                             <i class="bi bi-box-arrow-in-left"></i>
                             Login</button>}
