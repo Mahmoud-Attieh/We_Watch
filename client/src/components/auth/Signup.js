@@ -41,10 +41,10 @@ const Signup = () => {
                 <div className='signup-left'>
                     <div className='logo'>
                         <img src={logo} alt='MyMovies' />
-                        <Link to='/'>We Watch</Link>
+                        <Link to='/'>WeWatch</Link>
                     </div><br></br>
                     <h3>The best Movie Database App for you</h3>
-                    <p>Please register to start using our service.</p>
+                    <p>Please register to start using our service</p>
                 </div>
                 <div className='signup-right'>
                     <div className='signup-right-gradient'>
@@ -54,7 +54,7 @@ const Signup = () => {
                             <input className='inputforms' type='text' onChange={(e) => {
                                 setUsername(e.target.value);
                                 if (e?.target?.value?.length < 4) {
-                                    setUsernameError("*Username must be at least 4 characters long")
+                                    setUsernameError("Username must be at least 4 characters long")
                                 } else {
                                     setUsernameError()
                                 }
@@ -64,7 +64,7 @@ const Signup = () => {
                             <input className='inputforms' type='text' onChange={(e) => {
                                 setFullName(e.target.value);
                                 if (e?.target?.value?.length < 6) {
-                                    setNameError("*Full Name must be at least 6 characters long")
+                                    setNameError("Full Name must be at least 6 characters long")
                                 } else {
                                     setNameError()
                                 }
@@ -74,7 +74,7 @@ const Signup = () => {
                             <input className='inputforms' type='email' onChange={(e) => {
                                 setEmail(e.target.value);
                                 if (e?.target?.value?.length < 6) {
-                                    setEmailError("*Email must be at least 6 characters long")
+                                    setEmailError("Email must be at least 6 characters long")
                                 } else {
                                     setEmailError()
                                 }
@@ -84,7 +84,7 @@ const Signup = () => {
                             <input className='inputforms' type='password' onChange={(e) => {
                                 setPassword(e.target.value);
                                 if (e?.target?.value?.length < 8) {
-                                    setPasswordError("*Password must be at least 8 characters long")
+                                    setPasswordError("Password must be at least 8 characters long")
                                 } else {
                                     setPasswordError()
                                 }
