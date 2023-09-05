@@ -13,6 +13,7 @@ import Signup from './components/auth/Signup';
 import FavoriteView from './components/favorite/FavoriteView';
 import UserDetail from './components/Details/Details';
 import Chat from './components/chat/Chat';
+import Edit from './components/edit/Edit';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Route path='/:category/search/:keyword' element={<Catalog />} />
       <Route path='/favorites' element={<FavoriteView />} />
       <Route element={<UserDetail/>} path="/user/:id" />
+      <Route element={<Edit/>} path="/user/:id/edit"/>
     </Routes>
       <Footer />
     </BrowserRouter>
