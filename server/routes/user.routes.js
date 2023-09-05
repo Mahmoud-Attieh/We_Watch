@@ -6,6 +6,6 @@ module.exports = (app) =>{
     app.post("/api/users/logout", UserController.logout);
     app.get("/api/users/loggeduser", UserController.getUserByEmail);
     app.get('/api/user/:id', UserController.getUser);
-    app.delete('/api/user/:id', UserController.deleteUser);
     app.patch('/api/user/:id', UserController.updateUser);
+    app.delete('/api/user/:id', UserController.deleteUser);
 }

@@ -63,7 +63,7 @@ const UserDetail = (props) => {
                         </ul>
                         <div className="links">
                             
-                            <Link to={"/people/" + user._id + "/edit"}> <button className="follow">Edit</button> </Link>
+                            <Link to={"/user/" + user._id + "/edit"}> <button className="follow">Edit</button> </Link>
                             <button onClick={deleteUser} className="view">Delete</button>
                         </div>
                     </div>

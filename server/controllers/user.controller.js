@@ -102,8 +102,8 @@ module.exports.deleteUser = (request, response) => {
 
 
 module.exports.updateUser = (request, response) => {
-    User.findOneAndUpdate({_id: request.params.id}, request.body, {new:true})
-        .then(updatedUser => response.json(updatedUser))
+    User.findByIdAndUpdate(request.params.id, request.body, {new:true})
+        .then(updatedUser => {response.json(updatedUser) ; console.log(request.body)})
         .catch(err => response.json(err))
 }
 
