@@ -12,12 +12,14 @@ import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import FavoriteView from './components/favorite/FavoriteView';
 import UserDetail from './components/Details/Details';
+import Chat from './components/chat/Chat';
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
+      <Route path='/chat' element={<Chat/>}/>
       <Route path='/register' element={<Signup />} />
       <Route path='/login' element={<Login />} />
       <Route path='/' element={<Home />} />
