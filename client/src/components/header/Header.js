@@ -38,6 +38,12 @@ const Header = () =>
     {
         navigate('/login')
     }
+    const profileHandler = () => 
+    {
+        navigate('/user/' + loggeduser._id)
+        setIsOpen(false);
+    }
+
     useEffect(() => 
     {
         axios.get(`http://localhost:8000/api/users/loggeduser?email=${loggeduseremail}`).then(res=>{setLogedduser(res.data.user)})
@@ -91,6 +97,9 @@ const Header = () =>
                 </div>
                 {isOpen && (
                 <div class="dropdown__menu">
+                    <li className="signout" onClick={profileHandler}>
+                    Profile
+                    </li>
                     <li className="signout" onClick={logoutHandler}>
                     Logout <i class="bi bi-box-arrow-right"></i>
                     </li>
