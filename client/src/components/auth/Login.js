@@ -41,7 +41,6 @@ const Login = () => {
                 Login
             </PageHeader>
             <div className='login-page'>
-
                 <div className='left'>
                     <div className='logo'>
                         <img src={logo} alt='MyMovies' />

@@ -36,7 +36,6 @@ const Signup = () => {
             <PageHeader>
                 Register
             </PageHeader>
-
             <div className='signup-page'>
                 <div className='signup-left'>
                     <div className='logo'>

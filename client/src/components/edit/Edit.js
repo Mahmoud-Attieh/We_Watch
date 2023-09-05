@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useParams } from "react-router-dom";
-import './style.css'
-import "./favorite-view.scss";
+import './edit.css'
 import { useNavigate } from 'react-router-dom';
 import PageHeader from '../page-header/PageHeader';
 
@@ -28,45 +27,41 @@ const Edit = (props) => {
             fullname,
             email
         })
-            .then(res => {console.log(res); navigate('/')})
+            .then(res => { console.log(res); navigate('/') })
             .catch(err => console.error(err));
     }
 
     return (
         <div>
-        <PageHeader>
-            Edit Profile
-        </PageHeader>
-        <div className='login-page'>
-
-            <div className='left'>
-            <form onSubmit={updateUser}>
-                <p>
-                    <label>User Name</label><br />
-                    <input style={{backgroundColor:"white"}} type="text"
-                        name="name"
-                        value={name}
-                        onChange={(e) => { setName(e.target.value) }} />
-                </p>
-                <p>
-                    <label>Full Name</label><br />
-                    <input style={{backgroundColor:"white"}} type="text"
-                        name="fullname"
-                        value={fullname}
-                        onChange={(e) => { setFullName(e.target.value) }} />
-                </p>
-                <p>
-                    <label>Email</label><br />
-                    <input style={{backgroundColor:"white"}} type="text"
-                        name="email"
-                        value={email}
-                        onChange={(e) => { setEmail(e.target.value) }} />
-                </p>
-                <input type="submit" />
-            </form>
+            <PageHeader>
+                Edit Profile
+            </PageHeader>
+            <div className='login-page'>
+                <div className='left'>
+                    <div class="forms">
+                        <form onSubmit={updateUser} >
+                        <div class="subtitle"><h3>Let's Edit your Profile!</h3></div>
+                        <div class="input-container ic1">
+                            <input name="name" value={name} id="firstname" class="input" type="text" placeholder=" " onChange={(e) => { setName(e.target.value) }} />
+                            <div class="cut"></div>
+                            <label for="firstname" class="placeholder">User Name</label>
+                        </div>
+                        <div class="input-container ic2">
+                            <input name="fullname" value={fullname} id="lastname" class="input" type="text" placeholder=" " onChange={(e) => { setFullName(e.target.value) }} />
+                            <div class="cut"></div>
+                            <label for="lastname" class="placeholder">Full Name</label>
+                        </div>
+                        <div class="input-container ic2">
+                            <input name="email" value={email} id="email" class="input" type="text" placeholder=" "  onChange={(e) => { setEmail(e.target.value) }} />
+                            <div class="cut cut-short"></div>
+                            <lable for="email" class="placeholder">Email</lable>
+                        </div>
+                        <button type="text" class="submit">submit</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
     )
 }
 
