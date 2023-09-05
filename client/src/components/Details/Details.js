@@ -3,14 +3,16 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 import './style.css'
 import "./favorite-view.scss";
-
+import { useNavigate , Link } from 'react-router-dom';
 import PageHeader from '../page-header/PageHeader';
+
+
 
 const UserDetail = (props) => {
     const [user, setUser] = useState({})
     const [fav, setFav] = useState([])
     const { id } = useParams();
-
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -25,6 +27,18 @@ const UserDetail = (props) => {
             .catch(err => console.error(err));
     }, []);
 
+    const deleteUser = () => {
+        axios.delete('http://localhost:8000/api/user/' + id)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => console.error(err));
+        localStorage.removeItem("jwt");
+        localStorage.removeItem("loggeduser")
+        localStorage.removeItem("userid")
+        navigate('/')
+        window.location.reload()
+    }
 
     return (
         <div>
@@ -32,7 +46,7 @@ const UserDetail = (props) => {
                 <PageHeader>
                     My Profile
                 </PageHeader>
-                <div className="card">  
+                <div className="card">
                     <div className="infos">
                         <div className="name">
                             <h2>{user.fullname}</h2>
@@ -48,8 +62,9 @@ const UserDetail = (props) => {
                             </li>
                         </ul>
                         <div className="links">
-                            <button className="follow">Edit</button>
-                            <button className="view">Delete</button>
+                            
+                            <Link to={"/people/" + user._id + "/edit"}> <button className="follow">Edit</button> </Link>
+                            <button onClick={deleteUser} className="view">Delete</button>
                         </div>
                     </div>
                 </div>
