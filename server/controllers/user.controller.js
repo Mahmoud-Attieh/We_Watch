@@ -85,5 +85,12 @@ module.exports = {
                 console.log("Error while getting user by email", err);
                 res.status(500).json({ message: "Internal server error" });
             });
-    }
+    },
 }
+
+module.exports.getUser = (request, response) => {
+    User.findOne({_id:request.params.id})
+        .then(user => response.json(user))
+        .catch(err => response.json(err))
+}
+

@@ -11,6 +11,7 @@ import Detail from './pages/detail/Detail';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import FavoriteView from './components/favorite/FavoriteView';
+import UserDetail from './components/Details/Details';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route path='/:category/:id' element={<Detail />} />
       <Route path='/:category/search/:keyword' element={<Catalog />} />
       <Route path='/favorites' element={<FavoriteView />} />
+      <Route element={<UserDetail/>} path="/user/:id" />
     </Routes>
       <Footer />
     </BrowserRouter>
