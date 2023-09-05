@@ -61,19 +61,19 @@ module.exports = {
                 }
             })
             .catch((err) => {
-                console.log("error with find one")
+                console.log("Error with find one")
                 res.status(400).json({message: "Invalid login attempt",err});
             })
     },
     logout: (req, res) => {
-        console.log("logging out!");
-        res.clearCookie("usertoken"); //same name as a bove for saving the cookie
+        console.log("Logging out!");
+        res.clearCookie("Usertoken"); 
         res.json({
             message:"You have successfuly logged out"
         })
     },
     getUserByEmail: (req, res) => {
-        User.findOne({ email: req.query.email }) // Use req.query.email to get the email from the request URL
+        User.findOne({ email: req.query.email }) 
             .then((user) => {
                 if (!user) {
                     res.status(404).json({ message: "User not found" });
