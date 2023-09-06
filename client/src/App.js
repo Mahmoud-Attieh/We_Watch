@@ -30,6 +30,7 @@ function App() {
       <Route path='/favorites' element={<FavoriteView />} />
       <Route element={<UserDetail/>} path="/user/:id" />
       <Route element={<Edit/>} path="/user/:id/edit"/>
+      
     </Routes>
       <Footer />
     </BrowserRouter>

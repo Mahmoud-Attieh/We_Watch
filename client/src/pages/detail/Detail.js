@@ -7,8 +7,7 @@ import CastList from './CastList';
 import VideoList from './VideoList';
 import MovieList from '../../components/movie-list/MovieList';
 import FavoriteButton from '../../components/favorite/FavoriteButton';
-
-
+import ButtonWithIframe from '../../components/Movie/Video';
 
 const Detail = () => {
   const { category, id } = useParams();
@@ -57,12 +56,13 @@ const Detail = () => {
                   ))}
               </div>
               <p className='overview'>{item.overview}</p>
-              <div style={{display:"flex"}}>
+              <div style={{ display: "flex" }}>
                 <FavoriteButton
                   isFavorited={item.isFavorited}
                   movieId={item.id}
                 />
-                <h1 style={{marginLeft:"50px"}} >Raing : {item.vote_average}/10</h1>
+                <ButtonWithIframe/>
+                <h1 style={{ marginLeft: "50px" }} >Rating : {item.vote_average}/10</h1>
               </div>
               {token ? !null : <p style={{ color: "red" }}>*Sorry , you can't add movies to favorites if you are not a user!</p>}
               <div className='cast'>

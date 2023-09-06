@@ -23,7 +23,7 @@ const UserDetail = (props) => {
 
     useEffect(() => {
         axios.get(`http://localhost:8000/api/favorites/${id}`)
-            .then(res => setFav(res.data))
+            .then(res => {setFav(res.data); console.log(res.data)})
             .catch(err => console.error(err));
     }, []);
 
