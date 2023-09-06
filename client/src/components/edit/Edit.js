@@ -27,8 +27,9 @@ const Edit = (props) => {
             fullname,
             email
         })
-            .then(res => { console.log(res); navigate('/') })
+            .then(res => { console.log(res); navigate('/'); window.location.reload()})
             .catch(err => console.error(err));
+            
     }
 
     return (
