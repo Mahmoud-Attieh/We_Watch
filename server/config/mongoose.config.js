@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const dbName = process.env.DB;
 const username = process.env.ATLAS_USERNAME;
 const pw = process.env.ATLAS_PASSWORD;
-const uri = `mongodb+srv://${username}:${pw}@cluster0.8zdxzrm.mongodb.net/${dbName}?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${username}:${pw}@test.xkbd0cw.mongodb.net/${dbName}?retryWrites=true&w=majority`;
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,

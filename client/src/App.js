@@ -14,13 +14,23 @@ import FavoriteView from './components/favorite/FavoriteView';
 import UserDetail from './components/Details/Details';
 import Chat from './components/chat/Chat';
 import Edit from './components/edit/Edit';
+import Form from './components/chat/Form';
+import { useState } from 'react';
 
 function App() {
+  const [name, setName] = useState("");
+  const handelName = (name) => {
+    setName(name);
+  }
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-      <Route path='/chat' element={<Chat/>}/>
+      <Route path='/chat' element={<div>{
+        name?
+        <Chat name={ name }/>:
+        <Form handelName={ handelName }/>
+      }</div>}/>
       <Route path='/register' element={<Signup />} />
       <Route path='/login' element={<Login />} />
       <Route path='/' element={<Home />} />

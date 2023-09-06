@@ -1,63 +1,59 @@
-import React, { useState, useEffect } from 'react';
-import io from 'socket.io-client';
+import React, { useEffect, useRef, useState } from 'react'
+import io from 'socket.io-client'
 import PageHeader from '../page-header/PageHeader';
 
-const Chat = () => {
-  const [message, setMessage] = useState('');
-  const [messages, setMessages] = useState([]);
-  const socket = io.connect('http://localhost:8000'); // Replace with your server URL
+const Chat = (props) => {
+    const [socket] = useState(() => io(':8000'));
+    const [message, setMessage] = useState("");
+    const [messages, setMessages] = useState([]);
+    const bottomRef = useRef(null);
 
-  useEffect(() => {
-    // Listen for incoming chat messages
-    socket.on('chatMessage', (message) => {
-      setMessages([...messages, message]);
-    });
-    // Clean up the socket connection when the component unmounts
-    return () => {
-      socket.disconnect();
-    };
-  }, [messages]);
+    useEffect(() => {
+        console.log("Running");
+        socket.on("welcome", data => console.log(data));
+        socket.on("messages_to_chat", data => setMessages(data));
+    }, [socket]);
 
-  const handleSendMessage = () => {
-    // if (message.trim() !== '') {
-      socket.emit('chatMessage', message);
-      setMessage('');
-    // }
-  };
+    useEffect(() => {
+        socket.emit("new_user",  props.name);
+    }, [props.name, socket]);
 
-  return (
-    <div>
-    <PageHeader>
-        Login
+    useEffect(() => {
+        bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, [messages]);
+
+    const handelSubmit = e => {
+        e.preventDefault();
+        socket.emit("message_from_client", { msg: message, name: props.name });
+        setMessage("");
+    }
+    return (
+      <>
+      <PageHeader>
+      My Favorites
     </PageHeader>
-    <div className='login-page'>
-
-        <div className='left'>
-            <div className='logo'>
-            <div>
-      <div>
-        <ul>
-          {messages.map((msg, index) => (
-            <li style={{color: 'black'}} key={index}>{msg}</li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <input
-        style={{backgroundColor: 'white'}}
-          type="text"
-          placeholder="Type your message..."
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <button onClick={handleSendMessage}>Send</button>
-      </div>
-    </div>
-            </div>
+        <div className='login-page' style={{ width: "82%", maxHeight: "300px", overflow: "auto", margin: "0 auto", border: "1px solid black" }}>
+            <h1>Welcome, {props.name}</h1>
+            {
+                messages.map((msg, i) =>
+                    (msg.name === props.name) ?
+                        <div key={i} style={{ width: "40%", margin: "1% 0 1% auto", border: "1px solid black", backgroundColor: "#9fc5f8", boxShadow: "3px 3px 3px #777", borderRadius: "10px" }}>
+                            <span><strong>You: </strong></span><br /> {msg.msg}
+                        </div>
+                        :
+                        <div key={i} style={{ width: "40%", margin: "1% auto 1% 0", border: "1px solid black", backgroundColor: "#dddddd", boxShadow: "3px 3px 3px #777", borderRadius: "10px" }}>
+                            <span><strong>{msg.name}</strong></span> {msg.name ? <>said: </> : <></>} <br /> {msg.msg}
+                        </div>
+                )
+            }
+            <form onSubmit={handelSubmit}>
+                <input type="text" value={message} style={{backgroundColor: 'white'}} onChange={e => setMessage(e.target.value)} />
+                <input type="submit" value="Send" />
+            </form>
+            <div ref={bottomRef} />
         </div>
-            </div>
-        </div>
-);
-};
+        </>
+    )
+}
 
-export default Chat;
+export default Chat

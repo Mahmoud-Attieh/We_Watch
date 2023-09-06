@@ -29,22 +29,21 @@ require('./routes/user.routes')(app);
 
 const favoritesRoutes = require('./routes/favorites.routes');
 app.use('/api/favorites', favoritesRoutes);
-
-io.on('connection', (socket) => {
-    console.log('A user connected');
-  
-    // Listen for incoming messages
-    socket.on('chatMessage', (message) => {
-      // Broadcast the message to all connected clients
-      io.emit('chatMessage', message);
-    });
-  
-    // Handle disconnection
-    socket.on('disconnect', () => {
-      console.log('A user disconnected');
-    });
-  });
-
 server.listen(PORT, function () {
     console.log(`The server has started on PORT: ${PORT}`);
+});
+
+const msgs = [];
+io.on("connection", socket => {
+    console.log("Nice to meet me.");
+    socket.emit("welcome", "Welcome to our socket!");
+    io.emit("messages_to_chat", msgs);
+    socket.on("message_from_client", data => {
+        msgs.push(data);
+        io.emit("messages_to_chat", msgs);
+    });
+    socket.on("new_user", data => {
+        msgs.push({msg:data+" has joined the chat"});
+        io.emit("messages_to_chat", msgs);
+    });
 });
