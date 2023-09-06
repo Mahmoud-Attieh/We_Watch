@@ -12,13 +12,15 @@ const Form = (props) => {
   return (
     <>
         <PageHeader>Chat</PageHeader>
-    <div>
+    <div style={{textAlign:"center"}}>
         <h3>Get started right now!</h3>
         <form onSubmit={handelSubmit}>
             <div>
                 <label>I want to start chatting with the name...</label><br/>
-                <input type="text" placeholder="My name.." value={name} onChange={e=>setName(e.target.value)} />
-                <input type="submit" value="Start Chatting"/>
+                <input style={{background:"white"}} type="text" placeholder="My name.." value={name} onChange={e=>setName(e.target.value)} />
+                <br/><br/>
+                <input  className="btn btn-outline-danger" type="submit" value="Chat"/>
+                <br/><br/>
             </div>
         </form>
     </div>

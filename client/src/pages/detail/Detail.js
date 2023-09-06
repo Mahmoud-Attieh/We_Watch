@@ -61,10 +61,11 @@ const Detail = () => {
                   isFavorited={item.isFavorited}
                   movieId={item.id}
                 />
-                <ButtonWithIframe/>
+                {token ? <ButtonWithIframe id = {item.id}/> : !null}
+                
                 <h1 style={{ marginLeft: "50px" }} >Rating : {item.vote_average}/10</h1>
               </div>
-              {token ? !null : <p style={{ color: "red" }}>*Sorry , you can't add movies to favorites if you are not a user!</p>}
+              {token ? !null : <p style={{ color: "red" }}>*Sorry , you can't add movies to favorites or watch them if you are not a user!</p>}
               <div className='cast'>
                 <div className='section__header'>
                   <h2>Cast</h2>
