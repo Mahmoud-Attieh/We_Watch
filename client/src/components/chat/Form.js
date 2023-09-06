@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import PageHeader from '../page-header/PageHeader';
+import './chat.scss'
+
 
 const Form = (props) => {
     const [name, setName] = useState("");
