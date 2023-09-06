@@ -30,8 +30,8 @@ const Chat = (props) => {
     }
     return (
       <>
-      <PageHeader>
-      My Favorites
+        <PageHeader>
+        Chat
     </PageHeader>
         <div className='chat'>
             <h1>Welcome, {props.name}</h1>
