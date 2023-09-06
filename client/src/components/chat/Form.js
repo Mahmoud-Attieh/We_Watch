@@ -11,9 +11,7 @@ const Form = (props) => {
     }
   return (
     <>
-        <PageHeader>
-      My Favorites
-    </PageHeader>
+        <PageHeader>Chat</PageHeader>
     <div>
         <h3>Get started right now!</h3>
         <form onSubmit={handelSubmit}>
