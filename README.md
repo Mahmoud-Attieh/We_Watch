@@ -97,6 +97,6 @@ Introducing WeWatch, an innovative movie-watching website designed to revolution
 
 [Kareem Taha](https://www.linkedin.com/in/kareem-taha-892b26273/)
 
-[Mahmoud Attieh](https://github.com/Mahmoud-Attieh/)
+[Mahmoud Attieh](https://www.linkedin.com/in/mahmoud-attieh-035aa6192//)
 
 
